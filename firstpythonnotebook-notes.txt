@@ -1,0 +1,307 @@
+
+Virtual environment:
+Sanitize your code sandbox
+first time you install 
+pwd present working directory
+command line no validation no good job message
+mkdir code
+then move to it
+and create a virtualenv, like this:
+/Users/user/Desktop/code
+users-Mac-mini-2:code user$ virtualenv --version
+15.1.0
+users-Mac-mini-2:code user$ virtualenv first-python-notebook
+Using base prefix '/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6'
+New python executable in /Users/user/Desktop/code/first-python-notebook/bin/python3.6
+check your folder: tools in it, toys in your sandbox, diferent programs you will use, a separate version of python and pip to be freestanding
+
+users-Mac-mini-2:code user$ cd first-python-notebook
+users-Mac-mini-2:first-python-notebook user$ pwd
+/Users/user/Desktop/code/first-python-notebook
+users-Mac-mini-2:first-python-notebook user$ ls
+bin			lib
+include			pip-selfcheck.json
+
+users-Mac-mini-2:first-python-notebook user$ ls
+bin			lib
+include			pip-selfcheck.json
+users-Mac-mini-2:first-python-notebook user$ ls bin
+activate		easy_install-3.6	python-config
+activate.csh		pip			python3
+activate.fish		pip3			python3.6
+activate_this.py	pip3.6			wheel
+easy_install		python
+users-Mac-mini-2:first-python-notebook user$ 
+
+run SOURCE to start the envirotnment
+users-Mac-mini-2:first-python-notebook user$ source bin/activate
+(first-python-notebook) users-Mac-mini-2:first-python-notebook user$ 
+
+
+
+type deactivate to deactivate the virtualenv
+
+Expliain why Jupyter Notebooks (version control and reproducibility), python, r, javascript, sql, etc
+
+We need to install it
+
+clear your terminal by typing clear
+now pip install jupyter 
+you can see the packages list here https://pypi.python.org/pypi
+pip will install jupyter
+
+install one version for every virtualenv or not?
+keep stuff inside an environment to 
+
+type clear
+launch jupyter notebook
+(first-python-notebook) users-Mac-mini-2:first-python-notebook user$ jupyter notebook
+[I 09:43:44.132 NotebookApp] Writing notebook server cookie secret to /Users/user/Library/Jupyter/runtime/notebook_cookie_secret
+[I 09:43:44.518 NotebookApp] Serving notebooks from local directory: /Users/user/Desktop/code/first-python-notebook
+
+type 2+2
+
+now a variable? whats a variable? what a variable is a placeholder name
+gonna call mine number
+shift enter to run
+number + 5 run = 7
+now we can multiply
+
+PARENTESIS: https://beta.observablehq.com/
+120 seconds each 120 seconds your work gets saved
+ipynb stands for interactive python notebook
+name your notebook
+localhost? whats localhost?
+what is pandas? 
+http://pandas.pydata.org/
+lets kill the running processs 
+control C
+Shutdown this notebook server (y/[n])? y
+[C 09:58:54.850 NotebookApp] Shutdown confirmed
+[I 09:58:54.851 NotebookApp] Shutting down 1 kernel
+[I 09:58:55.057 NotebookApp] Kernel shutdown: c4fc3381-7dea-4e6f-9fa8-fca6ba5069e3
+(first-python-notebook) users-Mac-mini-2:first-python-notebook user$ 
+
+the hard version is Control Z
+
+now lets install pandas
+
+(first-python-notebook) users-Mac-mini-2:first-python-notebook user$ pip install pandas
+Collecting pandas
+
+google PS1 to personalize your terminal prompt
+
+now fire up jupyter notebook again
+
+you can clear your cells by using the clipper tool or tuping x on hotkey
+
+open your notebook then import your pandas
+import pandas
+now type pandas. then press tab will show you everything available
+we will use 5 or 6
+now go back and type import pandas as pd
+hit play
+now you can do pd. tab 
+its a convenienece to make your life easier
+now lets see the power
+make a list
+variables can include a string of chracters like a name or store a series of variables, for example>
+my_list = [2, 4, 6, 8 ]
+hit run, nothing happens
+spaces are not needed, the commas are
+makes it easy to do lists and tables pr numbers to do math
+now this list is a series: this can do cool stuff
+turn list to series: my_series = pd.Series(my_list)
+boom now I have a series
+now do math
+my_series.sum()
+my_series.median()
+my_series.mean()
+
+my_series.describe()
+
+chapter 4: money in politics and explain what and why and how
+
+data frame: is a table
+chapter 5: copy the link to the first file http://www.firstpythonnotebook.org/_static/committees.csv
+
+lets go back to the notebook and clear everything with the exeption of pandas
+pd.read_csv('http://www.firstpythonnotebook.org/_static/committees.csv')
+for a local file pd.read_csv('path-to-your-file')
+tips:
+once idownloads the data and reads it once it does not have to read it again
+keep your data small for class exercises
+
+lets save as a new variable prop_list = pd.read_csv('http://www.firstpythonnotebook.org/_static/committees.csv')
+prop_list
+lets see head
+prop_list.head() shows the first five  
+prop_list.head(100) shows the first 100
+prop_list.tail() shows the first five 
+prop_list.info() tells you what you have in your data
+
+
+Now lets grab the second file
+
+contrib_list = pd.read_csv('http://www.firstpythonnotebook.org/_static/contributions.csv')
+
+contrib_list.head()
+contrib_list.info()
+
+now type
+prop_list.prop_name
+to see the column prop_name from prop_list file
+now
+prop_list.prop_name.value_counts() to 
+now lets turn that into a data frame (a table) by typing
+prop_list.prop_name.value_counts().reset_index()
+
+now we will filter by one *the second value* How do I do that? Just get rid of the reset.index
+
+prop_list.prop_name.value_counts()
+
+now search and copy
+PROPOSITION 056 - CIGARETTE TAX TO FUND HEALTHCARE, TOBACCO USE PREVENTION, RESEARCH, AND LAW ENFORCEMENT. INITIATIVE CONSTITUTIONAL AMENDMENT AND STATUTE.
+
+now lets filter like::::
+
+prop_list.prop_name =='PROPOSITION 056 - CIGARETTE TAX TO FUND HEALTHCARE, TOBACCO USE PREVENTION, RESEARCH, AND LAW ENFORCEMENT. INITIATIVE CONSTITUTIONAL AMENDMENT AND STATUTE.'
+
+What do we do with a list of True and False? Pretty not useful
+prop_list[prop_list.prop_name =='PROPOSITION 056 - CIGARETTE TAX TO FUND HEALTHCARE, TOBACCO USE PREVENTION, RESEARCH, AND LAW ENFORCEMENT. INITIATIVE CONSTITUTIONAL AMENDMENT AND STATUTE.']
+
+
+Now 
+prop_list[prop_list.prop_name.str.contains('MARIJUANA')]
+
+Who supports and who opposes?
+prop_list.committee_position.value_counts()
+SUPPORT 72
+OPPOSE 30
+
+NOW LETS MERGE?_! OR JOIN 2 TABLES by using using call access id
+go back to notebook and type
+pd.merge
+Explain joins left, right, inner join
+
+so my first table is prop_list and the second is contrib_list
+
+pd.merge(prop_list, contrib_list, on="calaccess_committee_id")
+
+turn into a variable merged:::
+merged = pd.merge(prop_list, contrib_list, on="calaccess_committee_id")
+
+now we can check the info
+merged.info()
+
+
+support = merged[merged.committee_position == 'SUPPORT']
+
+oppose = merged[merged.committee_position == 'OPPOSE']
+
+support.amount.sum()
+
+oppose.amount.sum()
+
+support.amount.sum() / oppose.amount.sum()
+
+support.amount.mean()
+
+oppose.amount.mean()
+
+support.amount.median()
+
+oppose.amount.median()
+
+now lets describe the data 
+support.amount.describe()
+
+lets sort
+support.sort_values('amount')
+
+lets filter
+merged[merged.amount > 0].committee_position.value_counts()
+
+groupby people
+merged.groupby(['contributor_firstname', 'contributor_lastname']).amount.sum()
+
+groupby people and use a data frame resetear el index
+
+merged.groupby(['contributor_firstname', 'contributor_lastname']).amount.sum().reset_index()
+
+merged.groupby(['contributor_firstname', 'contributor_lastname']).amount.sum().reset_index().sort_values('amount', ascending=False)
+
+lets create a new variable: big dogs
+
+bigdogs = merged.groupby(['contributor_firstname', 'contributor_lastname', 'committee_position']).amount.sum().reset_index().sort_values('amount', ascending=False)
+
+percentage of people that donated more than 100,000? >>
+
+bigdogs[bigdogs.amount >= 1000000].amount.sum()/merged.amount.sum()
+
+Now lets sort as the biggest in the top and from which state they are:
+merged.groupby('contributor_state').amount.sum().reset_index().sort_values('amount', ascending=False)
+
+
+YOU HAVE MADE A BOT! good idea example
+Export to CSV 
+bigdogs.to_csv('bigdogs.csv')
+Export to JSON
+bigdogs.to_json('bigdogs.json')
+
+
+ENDS HERE FIRST PART MUST CHECK ERRROSRS
+
+To know what a method does you type ? example
+pd.read_csv? and will give you an answer in the notebook
+
+
+data cleaning
+
+how can we do an in state out of state difference and total?
+lets wrote and execute a test with some more pandas tricks
+merged.groupby('in_state').amount.sum().reset_index().sort_values('amount', ascending=False)
+
+
+merged.contributor_firstname.fillna("", inplace=True)
+
+
+merged['clean_firstname'] = merged.contributor_firstname.fillna("")
+
+If I want to undo I go to the cell I want to undo and click on Cell / Run All Below
+
+FUNCTION? tell me how to write
+define or def
+make up a name like add2 
+and a parentesis where you put what you want 
+def add2(number):
+	return number + 2 
+
+
+IF TESTS
+def standardize_name(clean_fullname):
+	if clean_fullname == "COALITION FOR ADEQUATE SCHOOL HOUSING ISSUES"
+
+CLEAN you can trim by adding .strip()
+
+
+CHECK SIMILAR NOTEBOOKS
+h2visas https://github.com/datadesk/california-h2a-visas-analysis/blob/master/04_analysis.ipynb
+ferc analysis https://github.com/datadesk/ferc-enforcement-analysis/blob/master/02_analyze.ipynb
+https://github.com/BuzzFeedNews/everything#data-and-analyses
+
+ALSO CREATE DIFFERENT NOTEBOOKS TO SEGMENT THE WORK, LIKE DOWNLOADEDDATA.IPYNB AND AFTER ANALYSIS.PYNB
+
+MAGIC COMMANDS START WITH PERCENTAGE SIGN % 
+So to display matplotlib charts we mstart with %matplotlib inline 
+inline to dispplay inline
+
+plot a chart in notebooks then export as SVG to Illustrator and make it pretty in Illustrator
+
+
+PYFORMAT TOOL
+https://pyformat.info/
+
+CHECK: 
+http://jupyterlab.github.io/jupyterlab/
+https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906
